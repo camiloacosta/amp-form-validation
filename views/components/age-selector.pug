@@ -1,0 +1,15 @@
+mixin age-selector(id, label)
+    - const stateId = `${id}_state`;
+
+    amp-state(id=stateId)
+        script(type="application/json").
+            {
+                "age": 0
+            }
+    input(type="hidden", name=id, value="0", [value]=`${stateId}.age`)
+    div.item
+        span.label !{label}
+        .age
+            button.age--control(type="button", role="button", on=`tap:AMP.setState({ "${stateId}": { age: ${stateId}.age - 1 } })`) rem
+            span.age--value([text]=`${stateId}.age`) 0
+            button.age--control(type="button", role="button", on=`tap:AMP.setState({ "${stateId}": { age: ${stateId}.age + 1 } })`) add

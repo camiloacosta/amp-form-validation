@@ -1,0 +1,11 @@
+mixin form-wrapper()
+    amp-script(src="/assets/js/form-validator.js")
+        form.form(
+            method="post",
+            action-xhr="/contact",
+            target="_top",
+            autocomplete="off"
+        )
+            if block
+                block
+                button.form--submit(type="submit") Send

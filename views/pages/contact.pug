@@ -1,0 +1,25 @@
+include ../components/age-selector
+
+mixin page-contact()
+    .wrapper
+        label.item
+            span.label Name
+            input(
+                type="text",
+                name="name",
+                data-validations="required, length",
+                data-validation-required="\\S+",
+                data-validation-required-message="This field is required",
+                data-validation-length="^.{6,}$",
+                data-validation-length-message="Requires at least 6 letters"
+            )
+        label.item
+            span.label Email
+            input(
+                type="text",
+                name="email",
+                data-validations="email",
+                data-validation-email="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+                data-validation-email-message="Should be a valid email"
+            )
+        +age-selector("age", "Age")
